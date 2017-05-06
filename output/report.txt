@@ -1,0 +1,11 @@
+number of Ticket is :18
+Total Sale Amount:340.0
+Name:KONG: SKULL ISLAND Amount:0.0
+Name:LOGAN Amount:200.0
+Name:BEAUTY AND THE BEAST Amount:140.0
+Name:MOONLIGHT Amount:0.0
+Name:LA LA LAND Amount:0.0
+Type: Adult Number:6
+Type: Student Number:0
+Type: Children Number:0
+Type: Senior Number:0
