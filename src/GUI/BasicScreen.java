@@ -22,9 +22,9 @@ import javax.swing.JButton;
 /**
  * 
  * This class has the following functions
- * (1)display the Screen 
- * (2)
- * (3)
+ * (1)display the Screen (seat location,row location)
+ * (2)to calculate the price of the ticket according to the seats
+ * (3)to record the ticket information into a ticketList
  * @author lxt
  *
  */
