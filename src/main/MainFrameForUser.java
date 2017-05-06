@@ -35,7 +35,11 @@ import javax.swing.JTextArea;
 import javax.swing.JTable;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+/**
+ * The main frame of user (or whole system), better to use windowsBuilder(or other Visual components) to see the content
+ * @author lxt
+ *
+ */
 public class MainFrameForUser extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -53,6 +57,7 @@ public class MainFrameForUser extends JFrame {
 	private ArrayList<Map<Movie,ArrayList<Session>>> movie_map_list;
 	private ArrayList<Session> sessionList;
 	private JPanel panel;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -73,9 +78,8 @@ public class MainFrameForUser extends JFrame {
 	 * Create the frame.
 	 */
 	public MainFrameForUser() {
-		loadFileIntoMemory();
+		loadFileIntoMemory(); // load related information
 		this.setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 752, 725);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -84,7 +88,7 @@ public class MainFrameForUser extends JFrame {
 		JButton btnNewButton = new JButton("Print Ticket");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new PrintTicket(sessionList).setVisible(true);
+				new PrintTicket(sessionList).setVisible(true);//launch the print the Ticket frame
 			}
 		});
 		btnNewButton.setBounds(582, 547, 131, 33);
@@ -93,7 +97,7 @@ public class MainFrameForUser extends JFrame {
 		JButton btnNewButton_1 = new JButton("refund");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new RefundTicket(sessionList).setVisible(true);;
+				new RefundTicket(sessionList).setVisible(true);; // launch the refund Ticket frame
 			}
 		});
 		btnNewButton_1.setBounds(582, 590, 131, 33);
@@ -102,7 +106,7 @@ public class MainFrameForUser extends JFrame {
 		JButton btnQuit = new JButton("quit");
 		btnQuit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				dispose();
+				dispose(); // close the current frame
 			}
 		});
 		btnQuit.setBounds(582, 631, 131, 33);
@@ -123,6 +127,7 @@ public class MainFrameForUser extends JFrame {
 		AddFilmToPanel();  // add the film information to the panel
 		
 		//get time inoformation
+		// using the scrollPanel to scroll the screen
 		JScrollPane scrollPane_1 = new JScrollPane();
 		scrollPane_1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollPane_1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -165,23 +170,24 @@ public class MainFrameForUser extends JFrame {
 		JLabel lblDescription_1 = new JLabel("Description");
 		lblDescription_1.setBounds(10, 406, 84, 15);
 		contentPane.add(lblDescription_1);
-		timer= new MyTimer();
+		timer= new MyTimer(); //new a timer
 		timer.setBounds(546, 10, 180, 15);
 		contentPane.add(timer);
 		
 		JButton btnSystemAdminiter = new JButton("System Administrator");
 		btnSystemAdminiter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new CheckAdministratorFrame(sessionList, movie_list);
+				new CheckAdministratorFrame(sessionList, movie_list); //start the Administor Frame
 			}
 		});
 		btnSystemAdminiter.setBounds(413, 566, 159, 81);
 		contentPane.add(btnSystemAdminiter);
-		timer.start();
-		
-		
+		timer.start(); // start the timer to count the time
 	}
 	
+	/**
+	 * Load the Related files information into memory
+	 */
 	private void loadFileIntoMemory() {
 		movie_list=csv_util.loadMovieFile("files/movies.csv");
 		screen_list=csv_util.loadTimeTableFile("files/timeTable.csv");
@@ -191,16 +197,17 @@ public class MainFrameForUser extends JFrame {
 			movie_map=s_util.getMovie_map(movie, screen_list);
 			movie_map_list.add(movie_map);
 		}
-		
 		sessionList =s_util.getTotalSession(movie_map_list);  // get the total session
-		
 		//System.out.println(sessionList.size());
 		//System.out.println(sessionList.get(0).getMovie().getName());
 		//System.out.println(movie_map_list.get(1).get(movie_list.get(1)).size());
 		//movie_map=s_util.getMovie_map(movie_list.get(0), screen_list);
 		//System.out.println(movie_map.get(movie_list.get(0)).get(4));
 	}
-	
+	/**
+	 * Set the timeTable of each film 
+	 * @param sessionList
+	 */
 	private void SetText2(ArrayList<Session> sessionList){
 		//textArea_1.setText();
 		String text=sessionList.get(0).getMovie().getName()+"\n";  // movie name
@@ -212,6 +219,7 @@ public class MainFrameForUser extends JFrame {
 	}
 	/**
 	 * this function is used to Add the film to the Panel
+	 * the idea is that using the JLabel to represent each film
 	 */
 	private void AddFilmToPanel(){
 		int i=0;
@@ -222,10 +230,18 @@ public class MainFrameForUser extends JFrame {
 			label_list[i].setIcon(new ImageIcon(temp.getPicPath())); // set the movie image
 			label_list[i].addMouseListener(new MouseAdapter() {
 				@Override
+				/**
+				 * this method listens to mouse's movement to detect that if choosing the film (Jlabel)
+				 */
 				public void mouseEntered(MouseEvent e) {
 					textArea.setText(temp.getDescribtion());
 					SetText2(movie_map_list.get(index).get(movie_list.get(index)));
 				}
+				/**
+				 * this method listens to mouse's click movement to detect that whether the user 
+			     * click the label twice. 
+			     * if double click, then launch the movie frame to buy the ticket.
+				 */
 				@Override
 				public void mouseClicked(MouseEvent e){
 					if(e.getClickCount()==2){
@@ -233,7 +249,7 @@ public class MainFrameForUser extends JFrame {
 					}
 				}
 			});
-			panel.add(label_list[i]);
+			panel.add(label_list[i]); // add the label 
 		}
 	}
 }

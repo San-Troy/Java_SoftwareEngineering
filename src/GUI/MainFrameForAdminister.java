@@ -1,7 +1,5 @@
 package GUI;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
@@ -23,14 +21,15 @@ import javax.swing.JOptionPane;
 public class MainFrameForAdminister extends JFrame {
 
 	private JPanel contentPane;
-
-
+	
 	/**
-	 * Create the frame.
+	 * MainFrame Class For the Administer 
+	 * @param sessionList 
+	 * @param movie_list
 	 */
 	public MainFrameForAdminister(ArrayList<Session> sessionList,ArrayList<Movie> movie_list) {
 		search_util s_u= new search_util();
-		ArrayList<Ticket> ticket_list = s_u.getTiketSessionList(sessionList);
+		ArrayList<Ticket> ticket_list = s_u.getTiketSessionList(sessionList); //get the ticket list of the session List
 		this.setVisible(true);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -41,7 +40,7 @@ public class MainFrameForAdminister extends JFrame {
 		JButton btnCountSale = new JButton("Count Sale By Film");
 		btnCountSale.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new CountSaleByFilm(sessionList,movie_list);
+				new CountSaleByFilm(sessionList,movie_list); //launch the count sale frame by choosing movie name
 			}
 		});
 		btnCountSale.setBounds(24, 39, 173, 23);
@@ -50,7 +49,7 @@ public class MainFrameForAdminister extends JFrame {
 		JButton btnCountSaleBy = new JButton("Count Sale By Type");
 		btnCountSaleBy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new CountSaleByType(sessionList);
+				new CountSaleByType(sessionList);//launch the count sale frame by choosing the ticket type
 				return;
 			}
 		});
@@ -71,7 +70,7 @@ public class MainFrameForAdminister extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {	
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				csvReader_util.generateReport(ticket_list, movie_list);
+				csvReader_util.generateReport(ticket_list, movie_list); //generate the ticket report 
 				JOptionPane.showMessageDialog(null, "Generate the done!");
 			}
 		});
@@ -82,7 +81,7 @@ public class MainFrameForAdminister extends JFrame {
 		btnSendTheEmail.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				sendEmail();
+				sendEmail(); // Sending Email function
 			}
 		});
 		contentPane.add(btnSendTheEmail);
@@ -93,7 +92,7 @@ public class MainFrameForAdminister extends JFrame {
 	}
 	
 	/**
-	 * Send the Emails 
+	 * Send the Emails interface
 	 */
 	void sendEmail(){
 		JOptionPane.showMessageDialog(null, "Send the message to Administer's email");
