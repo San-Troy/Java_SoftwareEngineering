@@ -17,7 +17,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
+/**
+ * this is the administer frame 
+ * @author lxt
+ *
+ */
 public class MainFrameForAdminister extends JFrame {
 
 	private JPanel contentPane;

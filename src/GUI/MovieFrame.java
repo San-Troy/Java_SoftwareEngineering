@@ -25,7 +25,11 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+/**
+ * this class is used to show basic movie information of each movie.
+ * @author lxt
+ *
+ */
 public class MovieFrame extends JFrame {
 
 	private JPanel contentPane;

@@ -14,7 +14,11 @@ import javax.swing.JOptionPane;
 import Classes.Session;
 import Classes.Ticket;
 
-
+/**
+ * Screen1 which is a super class of BasicScreen
+ * @author lxt
+ *
+ */
 public class Screen1 extends BasicScreen {
 	
 	private String screen_name="Screen1";

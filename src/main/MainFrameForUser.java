@@ -35,6 +35,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTable;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 /**
  * The main frame of user (or whole system), better to use windowsBuilder(or other Visual components) to see the content
  * @author lxt
@@ -44,19 +45,18 @@ public class MainFrameForUser extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	JLabel label_1,label_2,label_3,label_4,label_5;
-	JLabel label_list[];
-	JTextArea textArea;
-	JTextArea textArea_1;
-	MyTimer timer; 
+	JLabel label_list[]; //use Jlabel to represent a film
+	JTextArea textArea;//
+	JTextArea textArea_1; //
+	MyTimer timer; // timer 
 	private csvReader_util csv_util = new csvReader_util();
 	private search_util s_util= new search_util();
-	private ArrayList<Movie> movie_list;
+	private ArrayList<Movie> movie_list;  //read movie from files
 	private ArrayList<ScreenTable> screen_list;
 	private Map<Movie,ArrayList<Session>> movie_map;
 	private ArrayList<Map<Movie,ArrayList<Session>>> movie_map_list;
-	private ArrayList<Session> sessionList;
-	private JPanel panel;
+	private ArrayList<Session> sessionList;  // core data structure
+	private JPanel panel; //
 	
 	/**
 	 * Launch the application.

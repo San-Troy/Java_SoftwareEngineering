@@ -8,7 +8,11 @@ import Classes.mySeat;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.JLabel;
-
+/**
+ * first kind of row
+ * @author lxt
+ *
+ */
 public class myRow_1 extends JPanel {
 	//private ArrayList<mySeat> list = new ArrayList<mySeat>();
 	private mySeat[] seatList;

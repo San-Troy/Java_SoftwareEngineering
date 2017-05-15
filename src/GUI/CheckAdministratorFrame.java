@@ -1,8 +1,5 @@
 package GUI;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -18,6 +15,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+
 
 public class CheckAdministratorFrame extends JFrame {
 
@@ -56,7 +54,13 @@ public class CheckAdministratorFrame extends JFrame {
 		contentPane.add(passwordField);
 		
 		JButton btnNewButton = new JButton("Enter");
-		btnNewButton.addActionListener(new ActionListener() {
+		btnNewButton.addActionListener(
+		 /**
+		 * @author lxt
+		 *
+		 */
+		new ActionListener() {
+			
 			public void actionPerformed(ActionEvent e) {
 				// check the administer information
 				if(textField.getText().equals("sys")&&passwordField.getText().equals("123456")){

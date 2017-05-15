@@ -94,7 +94,10 @@ public class Screen3 extends BasicScreen {
 		row_A.setBounds(113, 178, 456, 40);
 		getContentPane().add(row_A);
 	}
-
+	/**
+	 * method for searching the location of the seat.
+	 * @return
+	 */
 	int searchForSelectedSeat(){
 		int count=0;
 		mySeat[] ms1 = row_A.getSeatList();

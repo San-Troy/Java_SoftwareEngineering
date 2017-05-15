@@ -2,12 +2,22 @@ package util;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * date_util class that provide method for date compare
+ * @author lxt
+ *
+ */
 public class date_util {
-	public static ArrayList<String>  getAvaliableTime(ArrayList<String> list){
-		ArrayList<String> avaiList = new ArrayList<String> ();
+	/**
+	 * this method tries to get the avaliable time 
+	 * @param list 
+	 * @return
+	 */
+	public static ArrayList<String> getAvaliableTime(ArrayList<String> list){
+		
+		ArrayList<String> avaiList = new ArrayList<String>();
 		Date date =new Date();
 		long times = date.getTime();
 		SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
@@ -21,11 +31,12 @@ public class date_util {
 			String []time_temp = temp.split(":");
 			int hour=Integer.parseInt(time_temp[0]); 
 			int min =Integer.parseInt(time_temp[1]);
-			if(hour<current_hour){
+			if(hour<current_hour){ //compare the hours
 				continue;
-			}else if(hour==current_hour&&min<=current_min){
+			}else if(hour==current_hour&&min<=current_min){ //compare the hours and minutes
 				continue;
 			}else{
+				// if the time in timetable is available  
 				avaiList.add(temp);
 			}
 		}

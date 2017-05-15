@@ -36,7 +36,7 @@ public class BasicScreen extends JFrame {
 	protected Session current_Session;
 	protected ArrayList<mySeat> seatListForSelected;
 
-
+	
 	public ArrayList<mySeat> getSeatListForSelected() {
 		return seatListForSelected;
 	}
@@ -106,7 +106,7 @@ public class BasicScreen extends JFrame {
 	public BasicScreen(){
 		seatListForSelected= new ArrayList<mySeat>(); //this is used for storing saved tickets
 		ticket_list = new  ArrayList<Ticket>();  // this is used for storing the tickets
-		this.setVisible(true); 
+		this.setVisible(false); 
 		screen = new myScreen();
 		screen.setLocation(144, 268);
 		setBounds(100, 100, 661, 353);

@@ -22,6 +22,12 @@ import javax.swing.JOptionPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+
+/**
+ * this frame is used for refund the ticket 
+ * @author lxt
+ *
+ */
 public class RefundTicket extends JFrame {
 
 	private JPanel contentPane;
