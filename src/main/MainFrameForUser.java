@@ -212,7 +212,7 @@ public class MainFrameForUser extends JFrame {
 		//textArea_1.setText();
 		String text=sessionList.get(0).getMovie().getName()+"\n";  // movie name
 		for(Session session : sessionList){
-			// checkTime(); 提醒用户不能在过了相应的时间点后买票
+			// checkTime(); 鎻愰啋鐢ㄦ埛涓嶈兘鍦ㄨ繃浜嗙浉搴旂殑鏃堕棿鐐瑰悗涔扮エ
 			text+=session.getScreen_num()+": "+session.getDate()+"\n";
 		}
 		textArea_1.setText(text);

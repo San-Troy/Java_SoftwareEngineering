@@ -54,9 +54,10 @@ public class mySeat extends JButton {
 		this.isAvailable = isAvailable;
 	}
 	
-	// ĞòºÅ £¬ĞĞºÅ£¬ÆÁÄ»ºÅ
+	//åºå· ï¼Œè¡Œå·ï¼Œå±å¹•å·
 	public mySeat(int numOfseat,String row_num,String screen_num) {
 		this.isAvailable=true;
+		this.setOpaque(true);
 		this.setNumOfseat(numOfseat);
 		this.setRowOfseat(row_num);
 		this.setScreenOfseat(screen_num);
@@ -75,7 +76,7 @@ public class mySeat extends JButton {
 					}
 					if(!bt.isAvailable())
 					{	bt.setBackground(Color.RED);
-						bt.setEnabled(false);//ÒÑ¾­¸¶¿îµÄ×´Ì¬
+						bt.setEnabled(false);//å·²ç»ä»˜æ¬¾çš„çŠ¶æ€Ì¬
 					}
 				
 				}

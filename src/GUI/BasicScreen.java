@@ -127,12 +127,14 @@ public class BasicScreen extends JFrame {
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setVisible(true);
 		btnNewButton.setBackground(Color.GREEN);
+		btnNewButton.setOpaque(true);
 		btnNewButton.setEnabled(false);
 		btnNewButton.setBounds(98, 227, 15, 15);
 		contentPane.add(btnNewButton);
 		
 		JButton button_1 = new JButton("");
 		button_1.setBackground(Color.RED);
+		button_1.setOpaque(true);
 		button_1.setEnabled(false);
 		button_1.setBounds(98, 248, 15, 15);
 		contentPane.add(button_1);
@@ -170,6 +172,7 @@ public class BasicScreen extends JFrame {
 		JButton button = new JButton("");
 		button.setEnabled(false);
 		button.setBackground(Color.BLUE);
+		button.setOpaque(true);
 		button.setBounds(98, 202, 15, 15);
 		contentPane.add(button);
 		lblNewLabel_1.setVisible(true);
